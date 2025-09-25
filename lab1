@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "RU");
+    std::cout << "первая сторона треугольника:"<< std::endl;
+    int st1;
+    std::cin >> st1;
+    std::cout << "вторая сторона треугольника:"<< std::endl;
+    int st2;
+    std::cin >> st2;
+    std::cout << "третья сторона треугольника:"<< std::endl;
+    int st3;
+    std::cin >> st3;
+    double ll = 2.0;
+    double p = (st1 + st2 + st3)/ll;
+    std::cout << "полупериметр треугольника="<< p << std::endl;
+    double S = std::sqrt(p * (p - st1) * (p - st2) * (p - st3));
+         std::cout << "int,занимает " << sizeof(int)*8 << " бит(а,ов)"<< std::endl;
+    std::cout << "Min знач =" << INT_MIN << std::endl;
+    std::cout << "Max знач =" << INT_MAX << std::endl;
+    ; std::cout << "double занимает\n" << "????" << "бит(а,ов)" << std::endl;
+        ; std::cout << "Площадь треугольника = " << S << std::endl << std::endl;
+}
