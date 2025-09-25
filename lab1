@@ -1,9 +1,10 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-int main()
+int main()// функция main
 {
     setlocale(LC_ALL, "RU");
+    std::cout << "ЛАБ 1 вариант 6" << std::endl;
     std::cout << "первая сторона треугольника:"<< std::endl;
     int st1;
     std::cin >> st1;
@@ -13,13 +14,15 @@ int main()
     std::cout << "третья сторона треугольника:"<< std::endl;
     int st3;
     std::cin >> st3;
-    double ll = 2.0;
-    double p = (st1 + st2 + st3)/ll;
+    double p = (st1 + st2 + st3)/ 2.0;
     std::cout << "полупериметр треугольника="<< p << std::endl;
-    double S = std::sqrt(p * (p - st1) * (p - st2) * (p - st3));
+    double S = std::sqrt(p * (p - st1) * (p - st2) * (p - st3));/*sqrt используется только если ввести библеотеку cmath
+    (#include <cmath>) sqrt-корень*/
          std::cout << "int,занимает " << sizeof(int)*8 << " бит(а,ов)"<< std::endl;
     std::cout << "Min знач =" << INT_MIN << std::endl;
     std::cout << "Max знач =" << INT_MAX << std::endl;
-    ; std::cout << "double занимает\n" << "????" << "бит(а,ов)" << std::endl;
+    ; std::cout << "double занимает " << sizeof(double) << " бит(а,ов)" << std::endl;
+    std::cout << "Min знач =" << DBL_MIN << std::endl;
+    std::cout << "Max знач =" << DBL_MAX << std::endl;
         ; std::cout << "Площадь треугольника = " << S << std::endl << std::endl;
 }
