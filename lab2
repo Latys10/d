@@ -1,0 +1,82 @@
+#include <iostream>
+#include <bitset>
+
+
+int main()
+{
+    setlocale(LC_ALL, "RU");
+    short A;
+    std::cout << "Число А" << std::endl;
+    std::cin >> A;
+    std::bitset<8> b(A);
+    std::cout << b << " = "<<A<<  std::endl;
+    int i;
+    std::cout << "Бит i"<< std:: endl;
+    std::cin >> i;
+    if ((i > 7) or (i<0)) {
+        std::cout << "Ошибка, bit " << std::endl;
+        return 0;
+    }
+    int GG;
+    GG = (A>>(7-i))&1;
+    std::cout << GG << " = i бит " << std::endl;
+    if (GG == 0) {
+        short F;
+        F = A * A;
+        F &= ~(1 << i);
+        std::cout << F << " Результат программы" << std::endl;
+        std::bitset<8> FF(F);
+        std::cout << F << " = " << FF << std::endl;
+    }
+    else {
+        short S = 125;
+        S &= 0b1010101;
+        std::bitset<8> S1(S);
+        std::bitset<8> s(125);
+        std::cout << s << " это 125 в двоич" << std::endl;
+        std::cout << S1 << std::endl;
+    }
+    int N;
+    std::cout << "Введите интересующий маршрут автобуса" << std::endl;
+    std::cin >> N;
+    switch (N) {
+    case 113:
+        std::cout << "Маршрут " << N << " Калининград- Чапаево " << std::endl;
+        break;
+    case 114:
+    case 141:
+        std::cout << "Маршрут " << N << " Калининград- Зеленоградск " << std::endl;
+        break;
+    case 117:
+        std::cout << "Маршрут " << N << " Калининград - Мамоново " << std::endl;
+        break;
+    case 118    :
+        std::cout << "Маршрут " << N << " Калининград- Светлогорск " << std::endl;
+        break;
+    case 119:
+        std::cout << "Маршрут " << N << " Калининград- Пионерский " << std::endl;
+        break;
+    case 125:
+        std::cout << "Маршрут " << N << " Калининград- Донское " << std::endl;
+        break;  
+    case 136:
+        std::cout << "Маршрут " << N << " Калининград- Партизанское " << std::endl;
+        break;
+    case 148:
+    case 191:
+        std::cout << "Маршрут " << N << " Калининград- Багратионовск " << std::endl;
+        break;
+    case 161:
+        std::cout << "Маршрут " << N << " Калининград- Светлое " << std::endl;
+        break;
+    case 593:
+        std::cout << "Маршрут " << N << " Калининград- Морское " << std::endl;
+        break;
+    case 802:
+        std::cout << "Маршрут " << N << " Калининград- Чапаево " << std::endl;
+        break;
+    default:
+        std::cout << "Маршрутa несуществует" << std::endl;
+    }
+    return 0;
+}
