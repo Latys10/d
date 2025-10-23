@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    int a[9];
+    int j;
+    int met = 0;
+    cout << "9 чисел массива"<<endl;
+    for (int i = 0; i < 9; i = i + 1) {
+        cin >> a[i];
+        j = abs(a[i]);
+        while (j >= 10) {
+            j = j / 10;
+        }
+        if (j == 3) {
+            met = 1;
+        }
+    }
+        int pr;
+        if (met == 1) {
+            for (int i = 0; i < 8; i=i+1) {
+                for (int j = 0; j < 8 - i; j=j+1) {
+                    if (a[j] > a[j + 1]) {
+                        pr = a[j];
+                        a[j] = a[j + 1];
+                        a[j + 1] = pr;
+                    }
+                }
+            }
+        }
+        for (int i = 0;i < 9;i = i + 1) {
+            cout << a[i] << "; ";
+        }
+        cout << endl;
+        int aa[3][4];
+        cout << "12 чисел матрицы 3x4";
+        for (int i = 0; i < 3; i = i+1) {
+            for (int o = 0; o < 4; o =o+1) {
+                cin >> aa[i][o];
+            }
+        }
+        int b;
+        int max=INT_MIN;
+        int ii;
+        for (int i = 0;i < 3;i = i + 1) {
+            b = 0;
+            for (int p = 0; p < 4;p = p + 1) {
+                b = b + aa[i][p];
+                if (max < abs(b)) {
+                    max = abs(b);
+                    ii = p;
+
+                }
+
+            }
+        }
+        for (int i = 0;i < 4;i = i + 1) {
+             aa[ii][i] = 999;
+
+        }
+        for (int i = 0; i < 3;i = i + 1) {
+            for (int j = 0; j < 4;j = j + 1) {
+                cout << aa[i][j]<< " ";
+            }
+            cout << endl;
+        }
+    }
