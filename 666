@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+void mat() {
+    int matt[2][2];
+    for (int i = 0; i < 2; i = i + 1) {
+        for (int j = 0; j < 2; j = j + 1) {
+            cout << "Номер элемента: " << i+1 << " " << j+1 << endl;
+            cin >> matt[i][j];
+            if (i < 1 and j < 2) {
+                if (matt[i][j] < 0) {
+                    while (matt[i][j] < 0) {
+                        cout << "Ошибка ввода, введите новое" << endl;
+                        cin >> matt[i][j];
+                    }
+                }
+            }
+        }
+    }
+    int c = matt[1][0];
+    int d = matt[1][1];
+    return;
+
+}
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    mat();
+
+}
