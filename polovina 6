@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    int matt[2][2];
+    for (int i = 0; i < 2; i = i + 1) {
+        for (int j = 0; j < 2; j = j + 1) {
+            cout << "Номер элемента: " << i + 1 << " " << j + 1 << endl;
+            cin >> matt[i][j];
+            if (i < 1 and j < 2) {
+                if (matt[i][j] < 0) {
+                    while (matt[i][j] < 0) {
+                        cout << "Ошибка ввода, введите новое" << endl;
+                        cin >> matt[i][j];
+                    }
+                }
+            }
+        }
+    }
+    int c = matt[1][0];
+    int d = matt[1][1];
+    int a = matt[0][0];
+    int b = matt[0][1];
+    int** matrr = (int**)calloc(a + 2, sizeof(int*));
+    for (int i = 0; i < a + 2; i++) {
+        matrr[i] = (int*)calloc(b + 2, sizeof(int));
+        for (int j = 0; j < b + 2; j++) {
+            if (i == a and j==b) {
+                matrr[i][j] = a;
+            }
+            if (i == a+1 and j == b+1) {
+                matrr[i][j] = d;
+            }
+            if (i == a+1 and j == b) {
+                matrr[i][j] = c;
+            }
+            if (i == a and j == b+1) {
+                matrr[i][j] = b;
+            }
+            if ((i != a or j!=b) and (i!=a+1 or j!=b) and (i!=a or j!=b+1) and (i!=a+1 or j!=b+1)) {
+                matrr[i][j] = i * c + j * d;
+            }
+            cout << matrr[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
+}
