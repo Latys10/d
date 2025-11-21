@@ -98,6 +98,9 @@ int main()
         }
         cout << endl;
     }
+    for (int i = str - count; i < str; i++) {
+        free(matt[i]);
+    }
 
     for (int i = 0; i < a + 2; i++) {
         free(matt[i]);
