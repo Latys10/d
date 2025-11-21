@@ -92,17 +92,16 @@ int main()
         }
         cout << endl;
     }
+    str = str - count+1;
+    matt = (int**)realloc(matt, str * sizeof(int*));
     for (int i = 0; i < str; ++i) {
         for (int j = 0; j < sto; ++j) {
             cout << matt[i][j] << " ";
         }
         cout << endl;
     }
-    for (int i = str - count; i < str; i++) {
-        free(matt[i]);
-    }
 
-    for (int i = 0; i < a + 2; i++) {
+    for (int i = str-count; i < str; i++) {
         free(matt[i]);
     }
     free(matt);
