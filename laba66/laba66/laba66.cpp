@@ -1,0 +1,122 @@
+﻿#include <iostream>
+#include <cstdlib>
+using namespace std;
+int* find(int** matr, int i, int j, int* count) {
+    int* bis = (int*)malloc((i) * sizeof(int));
+    *count = 0;
+    for (int p = 0; p < i; p++) {
+        for (int pp = 0; pp < j; pp++) {
+            if (matr[p][pp] == 0) {
+                bis[(*count)++] = p;
+                break;
+            }
+        }
+    }
+    if (*count == 0) {
+        free(bis);
+        return nullptr;
+    }
+    return(int*)realloc(bis, (*count) * sizeof(int));
+}
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    int** matt = (int**)malloc(2 * sizeof(int*));
+    for (int i = 0; i < 2; i++) {
+        matt[i] = (int*)malloc(2 * sizeof(int));
+    }
+    for (int i = 0; i < 2; i = i + 1) {
+        for (int j = 0; j < 2; j = j + 1) {
+            cout << "Номер элемента: " << i + 1 << " " << j + 1 << endl;
+            cin >> matt[i][j];
+            if (i < 1 and j < 2) {
+                if (matt[i][j] < 0) {
+                    while (matt[i][j] < 0) {
+                        cout << "Ошибка ввода, введите новое" << endl;
+                        cin >> matt[i][j];
+                    }
+                }
+            }
+        }
+    }
+    int c = matt[1][0];
+    int d = matt[1][1];
+    int a = matt[0][0];
+    int b = matt[0][1];
+    matt = (int**)realloc(matt, (2 + a) * sizeof(int*));
+    int str = a + 2;
+    int sto = b + 2;
+    for (int i = 0; i < a + 2; i++) {
+        if (i < a + 2) {
+            matt[i] = (int*)malloc((b + 2) * sizeof(int));
+        }
+        else {
+            matt[i] = (int*)realloc(matt[i], (b + 2) * sizeof(int));
+        }
+        for (int j = 0; j < b + 2; j++) {
+            if (i == a and j == b) {
+                matt[i][j] = a;
+            }
+            if (i == a + 1 and j == b + 1) {
+                matt[i][j] = d;
+            }
+            if (i == a + 1 and j == b) {
+                matt[i][j] = c;
+            }
+            if (i == a and j == b + 1) {
+                matt[i][j] = b;
+            }
+            if ((i != a or j != b) and (i != a + 1 or j != b) and (i != a or j != b + 1) and (i != a + 1 or j != b + 1)) {
+                matt[i][j] = i * c + j * d;
+            }
+            cout << matt[i][j] << " ";
+        }
+        cout << endl;
+    }
+    int count = 0;
+    cout << "Номера/номер строк с нулем: ";
+    int* finddel = find(matt, a + 2, b + 2, &count);
+    if (count == 0) {
+        cout << "Их нету" << endl;
+    }
+    else {
+        for (int i = 0; i < count; i++) {
+            cout << finddel[i] + 1 << " ";
+            for (int io = finddel[i]; io < str-1; io++) {
+                for (int j = 0; j < sto; j++) {
+                    matt[io][j] = matt[io + 1][j];
+                }
+            }
+            str = str - 1;
+        }
+        cout << endl;
+    }
+    for (int i = 0; i < str; ++i) {
+        for (int j = 0; j < sto; ++j) {
+            cout << matt[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    for (int i = 0; i < a + 2; i++) {
+        free(matt[i]);
+    }
+    free(matt);
+    free(finddel);
+    int A, B;
+    cout << "Два числа: ";
+    cin >> A >> B;
+    int* UKA = new int(A);
+    int* UKB = new int(B);
+    *UKA = (*UKA) * 2;
+    int swapAB = *UKA;
+    *UKA = *UKB;
+    *UKB = swapAB;
+    A = *UKA;
+    B = *UKB;
+    cout << "A= " << A << "  B= " << B;
+    delete UKA;
+    delete UKB;
+
+}
