@@ -1,0 +1,147 @@
+#include <vector>
+#include <iostream>
+#include <array>
+using namespace std;
+void prosm(const vector<int>& vec) {
+    cout << "[";
+    for (int i = 0; i < vec.size(); i++) {
+        cout << vec[i] << " ";
+    }
+    cout << "]" << endl;
+}
+void dopn(vector<int>& vec) {
+    int o;
+    cout << "число" << " " << endl;
+    cin >> o;
+
+    vec.reserve(25);
+    vec.insert(vec.begin(), o);
+}
+void dopk(vector<int>& vec) {
+    int o;
+    cout << "число" << " " << endl;
+    cin >> o;
+
+    vec.reserve(25);
+    vec.push_back(o);
+
+}
+void clear(vector<int>& vec) {
+    vec.clear();
+}
+void naiti(vector<int>& vec) {
+    int oo;
+    int flagg = 0;
+    cout << "число" << " " << endl;
+    cin >> oo;
+    for (int i = 0; i < vec.size(); i++) {
+        if (oo == vec[i]) {
+            cout << i << " - Индекс числа" << endl;
+            flagg = 1;
+        }
+       
+    }
+    if (flagg==0) {
+        cout << "Такого числа нету" << endl;
+    }
+}
+void varik(vector<int>& vec) {
+    prosm(vec);
+    vector<int> pos;
+    const int oris = vec.size();
+    int flag = 0;
+    for (size_t i = 0; i < oris; i++) {
+        if (vec[i] % 2 != 0 && vec[i]!=0 && i % 2 == 0) {
+            pos.push_back(i + 1);
+            flag = 1;
+        }
+    }
+    if (flag == 0) {
+        vec.insert(vec.begin(), -1);
+        vec.push_back(-1);
+    }
+    else {
+        for (int j = pos.size(); j-- > 0;) {
+            int posic = pos[j];
+            vec.insert(vec.begin() + posic, 0);
+        }
+
+    }
+    prosm(vec);
+}
+void sorti(array<int,10> arr) {
+    for (int i = 0; i < 10 - 1; i++) {
+        for (int j = i + 1; j < 10; j++) {
+            if (arr[i] > arr[j]) {
+                swap(arr[i], arr[j]);
+            }
+        }
+    }
+    cout << "отсортированный" << endl;
+    for (int i = 0; i < 10; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < 10 - 1; i++) {
+        for (int j = i + 1; j < 10; j++) {
+            if (arr[i] < arr[j]) {
+                swap(arr[i], arr[j]);
+            }
+        }
+    }
+    cout << "отсортированный" << endl;
+    for (int i = 0; i < 10; i++) {
+        cout << arr[i] << " ";
+    }
+}
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    int vibor = 10;
+    vector<int> vec(3);
+    vec[0] = 4;
+    vec[1] = 5;
+    vec[2] = 51;
+    while (vibor != 0) {
+        cout << "Меню" << endl;
+        cout << "0, выход" << endl;
+        cout << "1, Просмотр" << endl;
+        cout << "2, Добавить в начало" << endl;
+        cout << "3, Добавить в конец" << endl;
+        cout << "4, Очистить все" << endl;
+        cout << "5, Найти элемент" << endl;
+        cout << "6, 6 вариант" << endl;
+        cin >> vibor;
+        if (vibor == 1) {
+            prosm(vec);
+        }
+        if (vibor == 2) {
+            dopn(vec);
+        }
+        if (vibor == 3) {
+            dopk(vec);
+        }
+        if (vibor == 4) {
+            clear(vec);
+        }
+        if (vibor == 5) {
+            naiti(vec);
+        }
+        if (vibor == 6) {
+            varik(vec);
+        }
+    }
+    array<int, 10> arr;
+    cout << "заполнение массива [-10;10]" << endl;
+    for (int i = 0; i < 10; i++) {
+        cin >> arr[i];
+        if (arr[i] <= -10 and arr[i] >= 10) {
+            i = 0;
+            cout << "число не в промежутке, вводите заново" << endl;
+        }
+    }
+    cout << endl;
+    sorti(arr);
+}
+
