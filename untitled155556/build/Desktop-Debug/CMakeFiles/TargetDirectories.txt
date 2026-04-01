@@ -1,0 +1,8 @@
+C:/Users/SMLatyshov/Desktop/untitled15555/build/Desktop-Debug/CMakeFiles/untitled15555.dir
+C:/Users/SMLatyshov/Desktop/untitled15555/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+C:/Users/SMLatyshov/Desktop/untitled15555/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/SMLatyshov/Desktop/untitled15555/build/Desktop-Debug/CMakeFiles/list_install_components.dir
+C:/Users/SMLatyshov/Desktop/untitled15555/build/Desktop-Debug/CMakeFiles/install.dir
+C:/Users/SMLatyshov/Desktop/untitled15555/build/Desktop-Debug/CMakeFiles/install/local.dir
+C:/Users/SMLatyshov/Desktop/untitled15555/build/Desktop-Debug/CMakeFiles/untitled15555_autogen_timestamp_deps.dir
+C:/Users/SMLatyshov/Desktop/untitled15555/build/Desktop-Debug/CMakeFiles/untitled15555_autogen.dir
