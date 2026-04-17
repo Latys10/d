@@ -1,0 +1,5 @@
+"C:/Users/student24/Desktop/build-untitled4-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/images/enemy.png",
+            "C:/Users/student24/Desktop/build-untitled4-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/images/enemy2.png",
+            "C:/Users/student24/Desktop/build-untitled4-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/images/enemy3.png"
+
+C:/Users/student24/Desktop/build-untitled4-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/images/mag.png
