@@ -1,0 +1,21 @@
+void MapWidget::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton) registerClick(QPointF(event->pos()));
+}
+
+void MapWidget::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    // Qt присылает второй клик серии как "double click" вместо обычного press
+    if (event->button() == Qt::LeftButton) registerClick(QPointF(event->pos()));
+}
+
+void MapWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    int v = hitVertex(QPointF(event->pos()));
+    if (v >= 0 && g->vertex(v).removed)
+        QToolTip::showText(event->globalPos(), "Удалена (3 клика - вернуть)", this);
+    else if (v >= 0 && isUnreachable(v))
+        QToolTip::showText(event->globalPos(), "Недостижимо", this);
+    else
+        QToolTip::hideText();
+}
